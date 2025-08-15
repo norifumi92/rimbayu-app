@@ -308,6 +308,106 @@ body {
     margin: 0;
 }
 
+/* Scroll Animation Styles */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-slide-left {
+    transform: translateX(-50px);
+}
+
+.animate-slide-right {
+    transform: translateX(50px);
+}
+
+.animate-slide-up {
+    transform: translateY(30px);
+}
+
+.animate-fade-scale {
+    transform: scale(0.95);
+}
+
+.animate-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+}
+
+.animate-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.animate-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.animate-delay-3 {
+    transition-delay: 0.3s;
+}
+
+.animate-delay-4 {
+    transition-delay: 0.4s;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-slide-up,
+    .animate-fade-scale {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 /* Utility classes needed for the React app */
 .container {
     max-width: 1200px;

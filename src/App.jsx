@@ -46,9 +46,28 @@ function App() {
 
     window.addEventListener('scroll', handleScroll)
 
+    // Scroll animations with Intersection Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-visible')
+        }
+      })
+    }, observerOptions)
+
+    // Observe elements with animation classes
+    const animatedElements = document.querySelectorAll('.animate-on-scroll')
+    animatedElements.forEach((el) => observer.observe(el))
+
     return () => {
       document.removeEventListener('click', handleClick)
       window.removeEventListener('scroll', handleScroll)
+      observer.disconnect()
     }
   }, [])
 
@@ -140,12 +159,12 @@ function App() {
       {/* News Section */}
       <section id="news" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">
+          <h2 className="section-title animate-on-scroll animate-slide-up">
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ニュース</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>NEWS</span>
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="news-card">
+            <div className="news-card animate-on-scroll animate-slide-up animate-delay-1">
               <div className="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-lg font-semibold">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>新メニュー登場</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>New Menu Items</span>
@@ -162,7 +181,7 @@ function App() {
               </div>
             </div>
             
-            <div className="news-card">
+            <div className="news-card animate-on-scroll animate-slide-up animate-delay-2">
               <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-lg font-semibold">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>出店情報</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Pop-up Events</span>
@@ -179,7 +198,7 @@ function App() {
               </div>
             </div>
             
-            <div className="news-card">
+            <div className="news-card animate-on-scroll animate-slide-up animate-delay-3">
               <div className="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white text-lg font-semibold">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>コミュニティ</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Community</span>
@@ -202,15 +221,15 @@ function App() {
       {/* Concept Section */}
       <section id="concept" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">
+          <h2 className="section-title animate-on-scroll animate-slide-up">
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>コンセプト</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONCEPT</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="concept-image">
+            <div className="concept-image animate-on-scroll animate-slide-left">
               <i className="fas fa-leaf text-6xl"></i>
             </div>
-            <div>
+            <div className="animate-on-scroll animate-slide-right">
               <h3 className="text-3xl font-semibold mb-6 text-gray-800">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>マレー半島をみんなで一緒に体験しよう</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Experience the Malay Peninsula Together</span>
@@ -246,13 +265,13 @@ function App() {
       {/* Menu Section */}
       <section id="menu" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">
+          <h2 className="section-title animate-on-scroll animate-slide-up">
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>メニュー</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>MENU</span>
           </h2>
 
           {/* Dinner Menu */}
-          <div className="menu-category">
+          <div className="menu-category animate-on-scroll animate-fade-scale">
             <h3 className="text-2xl font-semibold mb-4 text-center" style={{color: 'var(--forest-primary)'}}>
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ディナー | DINNER</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>DINNER</span>
@@ -284,13 +303,13 @@ function App() {
       {/* Schedule Section */}
       <section id="schedule" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">
+          <h2 className="section-title animate-on-scroll animate-slide-up">
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
           </h2>
           
           <div className="max-w-4xl mx-auto">
-            <div className="schedule-container">
+            <div className="schedule-container animate-on-scroll animate-slide-up">
               {renderSchedule()}
             </div>
           </div>
@@ -300,13 +319,13 @@ function App() {
       {/* Access Section */}
       <section id="access" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">
+          <h2 className="section-title animate-on-scroll animate-slide-up">
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Yamazaki Danchi */}
-            <div className="location-card">
+            <div className="location-card animate-on-scroll animate-slide-left">
               <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>山崎団地 ぐりーんハウス</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Yamazaki Danchi Green House</span>
@@ -334,7 +353,7 @@ function App() {
             </div>
 
             {/* Fuchinobase */}
-            <div className="location-card">
+            <div className="location-card animate-on-scroll animate-slide-right">
               <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>フチノベース</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Fuchinobase</span>
@@ -363,7 +382,7 @@ function App() {
           </div>
 
           {/* Contact Info */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-12 animate-on-scroll animate-slide-up">
             <h3 className="text-2xl font-semibold mb-6" style={{color: 'var(--forest-primary)'}}>
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>お問い合わせ</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONTACT</span>
