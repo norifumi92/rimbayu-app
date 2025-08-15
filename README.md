@@ -1,12 +1,53 @@
-# React + Vite
+# About This Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Heads up! This README is geared toward developers who want to see how this app is built.
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a React app powered by Vite for fast development and optimized builds. It all started with the magic command npm create vite@latest, and the whole development process has been supported by Claude Code. The app is hosted on Vercel.
 
-## Expanding the ESLint configuration
+### Prerequisites
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation & Running Locally
+
+1. Clone the repository
+
+2. Install dependencies
+```bash
+npm install
+```
+
+3. Start the development server
+```bash
+npm run dev
+```
+
+## 📦 Dependencies
+
+### Core Dependencies
+- **React**: ^19.1.1
+- **React DOM**: ^19.1.1
+
+### Development Dependencies
+- **Vite**: ^7.1.2
+- **@vitejs/plugin-react**: ^5.0.0
+- **ESLint**: ^9.33.0 (with React hooks and refresh plugins)
+- **TypeScript Types**: @types/react ^19.1.10, @types/react-dom ^19.1.7
+
+## 🌐 Deployment
+
+I’d suggest using [Vercel](https://vercel.com/) to host this app. It’ll pick up Vita automatically, so you can deploy and get the app live in no time—no manual setup needed.
+
+## 🛠️ Built With
+
+- **Vite** - Fast build tool and dev server
+- **React 19** - Latest React version
+- **Claude AI** - Development assistance
+- **Vercel** - Hosting platform
+
+---
+
+*Built with ❤️ using Vite + React*
