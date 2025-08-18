@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 import scheduleJson from './schedule.json'
 import './App.css'
+import News from './components/News'
+import Concept from './components/Concept'
+import Menu from './components/Menu'
+import Schedule from './components/Schedule'
+import Access from './components/Access'
 
 function App() {
   const [currentLang, setCurrentLang] = useState('ja')
@@ -71,35 +76,6 @@ function App() {
     }
   }, [])
 
-  const renderSchedule = () => {
-    if (scheduleData.length === 0) {
-      return (
-        <div className="schedule-loading">
-          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>今後の出店予定はありません</span>
-          <span className={currentLang === 'en' ? '' : 'hidden-lang'}>No upcoming events scheduled</span>
-        </div>
-      )
-    }
-
-    return scheduleData.map((event, index) => {
-      const dayText = currentLang === 'ja' ? event.day_ja : event.day_en
-      const locationText = currentLang === 'ja' ? event.location_ja : event.location_en
-      const colorTheme = event.color_theme === 'green' ? 'green' : 'pink'
-
-      return (
-        <div key={index} className={`schedule-item ${colorTheme}`}>
-          <div className={`date-circle ${colorTheme}`}>
-            <div className="day-text">{dayText}</div>
-            <div className="day-number">{event.day_num}</div>
-          </div>
-          <div className="schedule-details">
-            <div className="location-name">{locationText}</div>
-            <div className="schedule-time">{event.time_start} - {event.time_end}</div>
-          </div>
-        </div>
-      )
-    })
-  }
 
   return (
     <>
@@ -156,250 +132,15 @@ function App() {
         </div>
       </section>
 
-      {/* News Section */}
-      <section id="news" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title animate-on-scroll animate-slide-up">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ニュース</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>NEWS</span>
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="news-card animate-on-scroll animate-slide-up animate-delay-1">
-              <div className="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-lg font-semibold">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>新メニュー登場</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>New Menu Items</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>春の新メニューが登場しました</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Spring Menu Launch</span>
-                </h3>
-                <p className="text-gray-600">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>季節の食材を使った新しいマレーシア料理をお楽しみください</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Enjoy new Malaysian dishes featuring seasonal ingredients</span>
-                </p>
-              </div>
-            </div>
-            
-            <div className="news-card animate-on-scroll animate-slide-up animate-delay-2">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white text-lg font-semibold">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>出店情報</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Pop-up Events</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>フチノベースでの週末出店</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Weekend Pop-up at Fuchinobase</span>
-                </h3>
-                <p className="text-gray-600">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>毎月第1土曜日にフチノベースで出店しています</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Visit us every first Saturday at Fuchinobase</span>
-                </p>
-              </div>
-            </div>
-            
-            <div className="news-card animate-on-scroll animate-slide-up animate-delay-3">
-              <div className="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white text-lg font-semibold">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>コミュニティ</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Community</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-800">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>地域交流イベント開催</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Community Exchange Event</span>
-                </h3>
-                <p className="text-gray-600">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>多文化交流を深めるイベントを定期開催</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Regular events fostering multicultural exchange</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <News currentLang={currentLang} />
 
-      {/* Concept Section */}
-      <section id="concept" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title animate-on-scroll animate-slide-up">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>コンセプト</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONCEPT</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="concept-image animate-on-scroll animate-slide-left">
-              <i className="fas fa-leaf text-6xl"></i>
-            </div>
-            <div className="animate-on-scroll animate-slide-right">
-              <h3 className="text-3xl font-semibold mb-6 text-gray-800">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>マレー半島をみんなで一緒に体験しよう</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Experience the Malay Peninsula Together</span>
-              </h3>
-              <p className="text-lg text-gray-600 mb-6">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
-                  「Rimbayu」とは「森の風を感じられる空間」というマレーシアの造語です。
-                  まるで緑豊かなマレー半島でくつろいでいるような空間を創出し、
-                  異なる背景を持つ人々が交流できる架け橋となることを目指しています。
-                </span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
-                  "Rimbayu" is a Malaysian term meaning "a space where you can feel the forest breeze."
-                  We aim to create a relaxing atmosphere reminiscent of the lush Malay Peninsula,
-                  serving as a bridge connecting people from diverse backgrounds.
-                </span>
-              </p>
-              <p className="text-lg text-gray-600">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
-                  マレー半島の多様な文化（西洋、アラブ、インド、中国、オセアニア、英語圏）が
-                  融合した豊かな食文化を、西東京の皆様にお届けします。
-                </span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
-                  We bring the rich culinary culture of the Malay Peninsula, where diverse cultures
-                  (Western, Arab, Indian, Chinese, Oceanic, English-speaking) have blended together,
-                  to the Western Tokyo community.
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Concept currentLang={currentLang} />
 
-      {/* Menu Section */}
-      <section id="menu" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title animate-on-scroll animate-slide-up">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>メニュー</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>MENU</span>
-          </h2>
+      <Menu currentLang={currentLang} />
 
-          {/* Dinner Menu */}
-          <div className="menu-category animate-on-scroll animate-fade-scale">
-            <h3 className="text-2xl font-semibold mb-4 text-center" style={{color: 'var(--forest-primary)'}}>
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ディナー | DINNER</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>DINNER</span>
-            </h3>
-            <div className="menu-gallery">
-              <div className="menu-item">
-                <div className="text-center">
-                  <div className="text-lg font-semibold">レンダン</div>
-                  <div className="text-sm">¥1,300</div>
-                </div>
-              </div>
-              <div className="menu-item">
-                <div className="text-center">
-                  <div className="text-lg font-semibold">サテー</div>
-                  <div className="text-sm">¥1,100</div>
-                </div>
-              </div>
-              <div className="menu-item">
-                <div className="text-center">
-                  <div className="text-lg font-semibold">アヤムゴレン</div>
-                  <div className="text-sm">¥1,200</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Schedule currentLang={currentLang} scheduleData={scheduleData} />
 
-      {/* Schedule Section */}
-      <section id="schedule" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title animate-on-scroll animate-slide-up">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
-          </h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="schedule-container animate-on-scroll animate-slide-up">
-              {renderSchedule()}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Access Section */}
-      <section id="access" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="section-title animate-on-scroll animate-slide-up">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Yamazaki Danchi */}
-            <div className="location-card animate-on-scroll animate-slide-left">
-              <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>山崎団地 ぐりーんハウス</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Yamazaki Danchi Green House</span>
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <i className="fas fa-calendar-alt text-green-600 mr-3"></i>
-                  <span>
-                    <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>毎週木曜日</span>
-                    <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Every Thursday</span>
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-clock text-green-600 mr-3"></i>
-                  <span>11:00-15:00</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-utensils text-green-600 mr-3"></i>
-                  <span>
-                    <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>テイクアウト中心</span>
-                    <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Takeout Focused</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Fuchinobase */}
-            <div className="location-card animate-on-scroll animate-slide-right">
-              <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>フチノベース</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Fuchinobase</span>
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center">
-                  <i className="fas fa-calendar-alt text-green-600 mr-3"></i>
-                  <span>
-                    <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>月1回 第1土曜日</span>
-                    <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Monthly, First Saturday</span>
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-clock text-green-600 mr-3"></i>
-                  <span>11:00-17:00</span>
-                </div>
-                <div className="flex items-center">
-                  <i className="fas fa-chair text-green-600 mr-3"></i>
-                  <span>
-                    <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内飲食中心</span>
-                    <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Dine-in Focused</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="text-center mt-12 animate-on-scroll animate-slide-up">
-            <h3 className="text-2xl font-semibold mb-6" style={{color: 'var(--forest-primary)'}}>
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>お問い合わせ</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONTACT</span>
-            </h3>
-            <div className="space-y-4">
-              <p className="text-lg">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Semenanjung & Co.</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Semenanjung & Co.</span>
-              </p>
-              <p className="text-gray-600">
-                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>マレー半島をみんなで一緒に体験しよう</span>
-                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Experience the Malay Peninsula Together</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Access currentLang={currentLang} />
 
       {/* Footer */}
       <footer className="forest-gradient text-white py-8">
