@@ -1,24 +1,35 @@
 [
   {
-    "date": "2025-01-18",
-    "day_ja": "土",
-    "day_en": "Sat",
-    "day_num": "18",
-    "location_ja": "町田山崎団地 - ぐりーんハウス",
+    "date": "2025-08-20",
+    "day_ja": "水",
+    "day_en": "Wed",
+    "day_num": "20",
+    "location_ja": "町田山崎団地 ぐりーんハウス",
     "location_en": "Green House Yamazaki Danchi",
     "time_start": "11:00",
     "time_end": "15:00",
     "color_theme": "green"
   },
   {
-    "date": "2025-01-22",
-    "day_ja": "水",
-    "day_en": "Wed",
-    "day_num": "22",
-    "location_ja": "淵野辺 - フチノベース",
+    "date": "2025-08-23",
+    "day_ja": "土",
+    "day_en": "Sat",
+    "day_num": "23",
+    "location_ja": "淵野辺 フチノベース",
     "location_en": "Fuchinobase",
-    "time_start": "12:00",
+    "time_start": "11:00",
     "time_end": "16:00",
     "color_theme": "pink"
+  },
+  {
+    "date": "2025-08-30",
+    "day_ja": "土",
+    "day_en": "Sat",
+    "day_num": "30",
+    "location_ja": "町田山崎団地 ぐりーんハウス",
+    "location_en": "Green House Yamazaki Danchi",
+    "time_start": "11:00",
+    "time_end": "15:00",
+    "color_theme": "green"
   }
 ]

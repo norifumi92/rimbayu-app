@@ -91,6 +91,17 @@ body {
     border: 3px solid var(--forest-light);
 }
 
+.schedule-category {
+    background: var(--cream);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 3px solid var(--forest-light);
+    background-image: url('/calendar_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .menu-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -162,10 +173,26 @@ body {
 }
 
 /* Schedule Styles */
+
 .schedule-container {
-    display: grid;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-image: url('/calendar_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 2rem;
+}
+
+/* Align schedule to the right on larger screens */
+@media (min-width: 768px) {
+    .schedule-container {
+        margin-left: auto;
+        margin-right: 2rem;
+    }
 }
 
 .schedule-loading {
@@ -175,81 +202,79 @@ body {
     padding: 2rem;
 }
 
-.schedule-item {
-    background: white;
+.schedule-card {
     border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     display: flex;
     align-items: center;
-    gap: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 3px solid transparent;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-height: 50px;
+    width: 50%;
+    max-width: 400px;
 }
 
-.schedule-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(45, 80, 22, 0.15);
+.schedule-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-.schedule-item.green {
-    border-color: var(--forest-light);
-    background: linear-gradient(135deg, #f0f8f0 0%, #ffffff 100%);
+.schedule-card.green {
+    background: linear-gradient(135deg, #8fbc8f 0%, #6b8f6b 100%);
 }
 
-.schedule-item.pink {
-    border-color: #f8d7da;
-    background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+.schedule-card.pink {
+    background: linear-gradient(135deg, #f5a3b5 0%, #e8899a 100%);
 }
 
-.date-circle {
-    min-width: 120px;
-    height: 120px;
-    border-radius: 20px;
+.schedule-card.yellow {
+    background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);
+}
+
+.date-section {
+    min-width: 100px;
+    padding: 1.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
     font-weight: bold;
-    position: relative;
+    text-align: center;
 }
 
-.date-circle.green {
-    background: linear-gradient(135deg, var(--forest-secondary) 0%, var(--forest-primary) 100%);
-}
 
-.date-circle.pink {
-    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
-}
-
-.day-text {
-    font-size: 1rem;
+.day-label {
+    font-size: 0.9rem;
     opacity: 0.9;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
 }
 
 .day-number {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 800;
     line-height: 1;
 }
 
-.schedule-details {
+.event-details {
     flex: 1;
+    padding: 1.2rem 1.5rem;
+    color: white;
 }
 
 .location-name {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--forest-primary);
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
 }
 
-.schedule-time {
-    font-size: 1.2rem;
-    color: var(--forest-secondary);
-    font-weight: 500;
+.event-time {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
 }
 
 .schedule-info {
@@ -597,6 +622,128 @@ body {
 
 .max-w-4xl {
     max-width: 56rem;
+}
+
+/* Flyer-specific styles */
+.schedule-flyer {
+    background-image: url('/calendar_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+}
+
+.schedule-flyer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 1;
+}
+
+.flyer-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.flyer-title {
+    font-size: 2.5rem;
+    color: var(--forest-primary);
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    flex: 1;
+}
+
+.download-flyer-btn {
+    background: var(--forest-primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+}
+
+.download-flyer-btn:hover {
+    background: var(--forest-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(45, 80, 22, 0.4);
+}
+
+.flyer-content {
+    margin-top: 2rem;
+}
+
+.flyer-schedule-container {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 100%;
+}
+
+.schedule-flyer .schedule-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--forest-light);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+}
+
+.schedule-flyer .date-section {
+    border-right: 3px solid;
+    margin-right: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.schedule-flyer .day-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.schedule-flyer .location-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.schedule-flyer .event-time {
+    font-size: 1.1rem;
+    color: var(--forest-secondary);
+}
+
+@media print {
+    .schedule-flyer {
+        background-size: cover;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .download-flyer-btn {
+        display: none;
+    }
+    
+    .flyer-container {
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.9);
+    }
 }
 
 .space-y-3 > * + * {
