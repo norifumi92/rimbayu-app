@@ -1,19 +1,24 @@
 import { useState, useEffect } from 'react'
 import scheduleJson from './schedule.json'
 import './App.css'
-import News from './components/News'
-import Concept from './components/Concept'
-import Menu from './components/Menu'
+// import News from './components/News'
+// import Concept from './components/Concept'
+// import Menu from './components/Menu'
 import Schedule from './components/Schedule'
 import Access from './components/Access'
 
 function App() {
   const [currentLang, setCurrentLang] = useState('ja')
   const [scheduleData, setScheduleData] = useState([])
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleLanguage = () => {
     setCurrentLang(currentLang === 'ja' ? 'en' : 'ja')
     document.documentElement.lang = currentLang === 'ja' ? 'en' : 'ja'
+  }
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
   }
 
   useEffect(() => {
@@ -92,8 +97,9 @@ function App() {
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Rimbayu</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Rimbayu</span>
             </div>
+            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              <a href="#news" className="text-white hover:text-green-300 transition-colors">
+              {/* <a href="#news" className="text-white hover:text-green-300 transition-colors">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ニュース</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>NEWS</span>
               </a>
@@ -104,7 +110,7 @@ function App() {
               <a href="#menu" className="text-white hover:text-green-300 transition-colors">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>メニュー</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>MENU</span>
-              </a>
+              </a> */}
               <a href="#schedule" className="text-white hover:text-green-300 transition-colors">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
@@ -114,7 +120,44 @@ function App() {
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
               </a>
             </div>
+
+            {/* Mobile Hamburger Menu */}
+            <button 
+              className="md:hidden text-white focus:outline-none"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </button>
           </div>
+        </div>
+        
+        {/* Mobile Navigation Menu */}
+        <div className={`mobile-nav ${isMobileMenuOpen ? 'open' : ''}`}>
+          {/* <a href="#news" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ニュース</span>
+            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>NEWS</span>
+          </a>
+          <a href="#concept" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>コンセプト</span>
+            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONCEPT</span>
+          </a>
+          <a href="#menu" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>メニュー</span>
+            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>MENU</span>
+          </a> */}
+          <a href="#schedule" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
+            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
+          </a>
+          <a href="#access" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
+            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
+          </a>
         </div>
       </nav>
 
@@ -132,11 +175,11 @@ function App() {
         </div>
       </section>
 
-      <News currentLang={currentLang} />
+      {/* <News currentLang={currentLang} />
 
       <Concept currentLang={currentLang} />
 
-      <Menu currentLang={currentLang} />
+      <Menu currentLang={currentLang} /> */}
 
       <Schedule currentLang={currentLang} scheduleData={scheduleData} />
 
@@ -148,10 +191,6 @@ function App() {
           <p className="mb-4">
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>© 2025 Rimbayu by Semenanjung & Co. All Rights Reserved.</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>© 2025 Rimbayu by Semenanjung & Co. All Rights Reserved.</span>
-          </p>
-          <p className="text-green-200">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>西東京から始まる、多文化交流の新しい形</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>A new form of multicultural exchange starting from Western Tokyo</span>
           </p>
         </div>
       </footer>

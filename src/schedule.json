@@ -42,16 +42,5 @@
     "time_start": "10:00",
     "time_end": "17:00",
     "color_theme": "pink"
-  },
-  {
-    "date": "2025-09-15",
-    "day_ja": "月",
-    "day_en": "Mon",
-    "day_num": "15",
-    "location_ja": "渋谷スカイ",
-    "location_en": "Shibuya Sky",
-    "time_start": "12:00",
-    "time_end": "18:00",
-    "color_theme": "green"
   }
 ]
