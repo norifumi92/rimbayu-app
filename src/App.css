@@ -91,16 +91,6 @@ body {
     border: 3px solid var(--forest-light);
 }
 
-.schedule-category {
-    background: var(--cream);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border: 3px solid var(--forest-light);
-    background-image: url('/calendar_image.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 .menu-gallery {
     display: grid;
@@ -172,109 +162,183 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Schedule Styles */
+/* Calendar Styles */
 
-.schedule-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    background-image: url('/calendar_image.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 2rem;
+.schedule-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-/* Align schedule to the right on larger screens */
-@media (min-width: 768px) {
-    .schedule-container {
-        margin-left: auto;
-        margin-right: 2rem;
-    }
-}
-
-.schedule-loading {
-    text-align: center;
-    color: var(--forest-secondary);
-    font-size: 1.1rem;
-    padding: 2rem;
-}
-
-.schedule-card {
+.calendar-container {
+    background: white;
     border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.calendar-header-section {
+    background: linear-gradient(135deg, var(--forest-primary) 0%, var(--forest-secondary) 100%);
+    color: white;
     display: flex;
     align-items: center;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    min-height: 50px;
-    width: 50%;
-    max-width: 400px;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    position: relative;
 }
 
-.schedule-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+.calendar-month {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    text-align: center;
 }
 
-.schedule-card.green {
-    background: linear-gradient(135deg, #8fbc8f 0%, #6b8f6b 100%);
+.month-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
 }
 
-.schedule-card.pink {
-    background: linear-gradient(135deg, #f5a3b5 0%, #e8899a 100%);
+.month-nav-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
 }
 
-.schedule-card.yellow {
-    background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);
+.month-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
 }
 
-.date-section {
-    min-width: 100px;
-    padding: 1.2rem;
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.calendar-header {
+    background: #f8fafc;
+    color: var(--forest-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #e2e8f0;
+    letter-spacing: 0.5px;
+}
+
+.calendar-day {
+    border: 1px solid #f1f5f9;
+    padding: 0;
+    height: 120px;
+    vertical-align: top;
+    position: relative;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.calendar-day:hover {
+    background: #f8fafc;
+    transform: scale(1.02);
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.calendar-empty {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+.calendar-day .day-number {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #475569;
+    z-index: 2;
+}
+
+.calendar-day.has-event {
+    background: linear-gradient(135deg, #fefefe 0%, #f8fafc 100%);
+    border: 2px solid transparent;
+}
+
+.calendar-day.has-event.green {
+    border-color: var(--forest-light);
+    background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e8 100%);
+}
+
+.calendar-day.has-event.pink {
+    border-color: #f472b6;
+    background: linear-gradient(135deg, #fef7f7 0%, #fdf2f2 100%);
+}
+
+.calendar-day.has-event .day-number {
+    color: var(--forest-primary);
+    font-weight: 700;
+}
+
+.event-info {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    top: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    text-align: center;
+    padding: 0.5rem;
 }
 
-
-.day-label {
-    font-size: 0.9rem;
-    opacity: 0.9;
-    margin-bottom: 0.2rem;
+.event-info .location {
+    font-size: 0.8rem;
     font-weight: 600;
-}
-
-.day-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.event-details {
-    flex: 1;
-    padding: 1.2rem 1.5rem;
-    color: white;
-}
-
-.location-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0.3rem;
+    color: var(--forest-primary);
+    margin-bottom: 0.25rem;
     line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
-.event-time {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 600;
+.event-info .time {
+    font-size: 0.75rem;
+    color: var(--forest-secondary);
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.no-events {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--forest-secondary);
+    font-size: 1.2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f1f5f9;
 }
 
 .schedule-info {
@@ -624,16 +688,11 @@ body {
     max-width: 56rem;
 }
 
-/* Flyer-specific styles */
-.schedule-flyer {
-    background-image: url('/calendar_image.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    padding: 2rem;
-    position: relative;
+.max-w-5xl {
+    max-width: 64rem;
 }
+
+/* Flyer-specific styles */
 
 .schedule-flyer::before {
     content: '';
@@ -654,13 +713,6 @@ body {
     background: rgba(255, 255, 255, 0.95);
     padding: 3rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.schedule-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
 }
 
 .flyer-title {
@@ -789,30 +841,6 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .schedule-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-        padding: 1.5rem;
-    }
-    
-    .date-circle {
-        min-width: 100px;
-        height: 100px;
-    }
-    
-    .day-number {
-        font-size: 2.5rem;
-    }
-    
-    .location-name {
-        font-size: 1.2rem;
-    }
-    
-    .schedule-time {
-        font-size: 1rem;
-    }
-    
     .location-item {
         flex-direction: column;
         text-align: center;
@@ -822,5 +850,56 @@ body {
     .location-badge {
         min-width: auto;
         align-self: center;
+    }
+    
+    /* Calendar mobile styles */
+    .calendar-header-section {
+        padding: 1rem 1.5rem;
+    }
+    
+    .calendar-month {
+        font-size: 1.5rem;
+    }
+    
+    .month-nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .calendar-header {
+        font-size: 0.8rem;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .calendar-day {
+        height: 80px;
+    }
+    
+    .calendar-day .day-number {
+        font-size: 0.9rem;
+        top: 4px;
+        left: 8px;
+    }
+    
+    .event-info {
+        top: 25px;
+        padding: 0.25rem;
+    }
+    
+    .event-info .location {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+    }
+    
+    .event-info .time {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .no-events {
+        padding: 2rem 1rem;
+        font-size: 1rem;
     }
 }
