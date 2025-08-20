@@ -9,21 +9,17 @@ function HeroSection({ currentLang }) {
 
   const slides = [
     {
-      ja: { title: '和風麺料理', desc: '丁寧に調理された麺料理と\n完璧な半熟卵の絶妙なハーモニー' },
-      en: { title: 'Japanese Noodle Dish', desc: 'Carefully prepared noodles with\nperfectly soft-boiled eggs' }
+      ja: { title: 'ハラル', desc: 'ムスリムシェフ厳選のハラル食材のみ使用' },
+      en: { title: 'Halal', desc: 'Only Halal ingredients by our Muslim chef' }
     },
     {
-      ja: { title: 'クラフトカクテル', desc: '新鮮なハーブを使用した\n洗練されたシグネチャードリンク' },
-      en: { title: 'Craft Cocktail', desc: 'Sophisticated signature drinks\nwith fresh herbs' }
+      ja: { title: '最先端', desc: 'マレーシアで最新の食文化を常に学び追求' },
+      en: { title: 'Modern Trends', desc: 'Learning the latest food culture in Malaysia' }
     },
     {
-      ja: { title: 'スープコース', desc: '厳選された薬味と共に\n心温まる一品をお楽しみください' },
-      en: { title: 'Soup Course', desc: 'Enjoy heartwarming dishes\nwith carefully selected seasonings' }
+      ja: { title: '洗練されたレシピ', desc: 'フレンチ技術と経験を生かした独自のレシピ' },
+      en: { title: 'Refined Recipes', desc: 'Unique recipes built on French techniques' }
     },
-    {
-      ja: { title: 'デザート', desc: 'トロピカルフルーツとココナッツの\nエレガントなフィナーレ' },
-      en: { title: 'Dessert', desc: 'Elegant finale with\ntropical fruits and coconut' }
-    }
   ]
 
   const nextSlide = useCallback(() => {
@@ -31,7 +27,7 @@ function HeroSection({ currentLang }) {
   }, [slides.length])
 
   const startSlideshow = useCallback(() => {
-    slideInterval.current = setInterval(nextSlide, 6000) // Increased from 4000ms to 6000ms
+    slideInterval.current = setInterval(nextSlide, 5000)
   }, [nextSlide])
 
   const stopSlideshow = useCallback(() => {
@@ -48,7 +44,7 @@ function HeroSection({ currentLang }) {
   const handleIndicatorClick = (index) => {
     setCurrentSlide(index)
     stopSlideshow()
-    setTimeout(startSlideshow, 2000) // Increased pause from 1000ms to 2000ms
+    setTimeout(startSlideshow, 2000) // Brief pause after manual interaction
   }
 
   const handleMouseEnter = () => {
@@ -78,7 +74,7 @@ function HeroSection({ currentLang }) {
       }
     }
 
-    setTimeout(startSlideshow, 2000) // Increased pause from 1000ms to 2000ms
+    setTimeout(startSlideshow, 2000) // Brief pause after manual interaction
   }
 
   return (
@@ -125,10 +121,6 @@ function HeroSection({ currentLang }) {
             </div>
           </div>
 
-          {/* Floating elements for ambiance */}
-          <div className="hero-floating-element hero-float-1"></div>
-          <div className="hero-floating-element hero-float-2"></div>
-          <div className="hero-floating-element hero-float-3"></div>
         </div>    
         
         <div className="hero-text-area">
