@@ -6,20 +6,21 @@ function HeroSection({ currentLang }) {
   const slideshowContainer = useRef(null)
   const startX = useRef(0)
   const endX = useRef(0)
+  const isUserInteracting = useRef(false)
 
   const slides = [
     {
-      ja: { title: 'ハラル', desc: 'ムスリムシェフ厳選のハラル食材のみ使用' },
-      en: { title: 'Halal', desc: 'Only Halal ingredients by our Muslim chef' }
+      ja: { title: 'ハラル', desc: 'ムスリムシェフが厳選してハラル食材のみ使用しています。' },
+      en: { title: 'Halal', desc: 'Our Muslim chefs carefully pick quality Halal ingredients.' }
     },
     {
-      ja: { title: '最先端', desc: 'マレーシアで最新の食文化を常に学び追求' },
-      en: { title: 'Modern Trends', desc: 'Learning the latest food culture in Malaysia' }
+      ja: { title: '最先端への追求', desc: 'マレー半島(タイ南部・マレーシア・シンガポール)に定期的に出向き、最新の食文化を常に学び追求しています。' },
+      en: { title: 'Continuous Update', desc: 'We regularly visit and learn the latest food culture and techniques in Malay Peninsula including Southern Thailand, Malaysia and Singapore.' }
     },
     {
-      ja: { title: '洗練されたレシピ', desc: 'フレンチ技術と経験を生かした独自のレシピ' },
-      en: { title: 'Refined Recipes', desc: 'Unique recipes built on French techniques' }
-    },
+      ja: { title: '日常に寄り添う価格', desc: '特別な日だけでなく、普段の食事にも楽しめる価格で洗練された料理をご提供します。' },
+      en: { title: 'Everyday Affordable', desc: 'Our refined dishes are priced so you can enjoy them not only on special occasions, but in daily life too.' }
+    }
   ]
 
   const nextSlide = useCallback(() => {
@@ -27,12 +28,18 @@ function HeroSection({ currentLang }) {
   }, [slides.length])
 
   const startSlideshow = useCallback(() => {
-    slideInterval.current = setInterval(nextSlide, 5000)
+    if (slideInterval.current) {
+      clearInterval(slideInterval.current)
+    }
+    if (!isUserInteracting.current) {
+      slideInterval.current = setInterval(nextSlide, 5000)
+    }
   }, [nextSlide])
 
   const stopSlideshow = useCallback(() => {
     if (slideInterval.current) {
       clearInterval(slideInterval.current)
+      slideInterval.current = null
     }
   }, [])
 
@@ -42,21 +49,31 @@ function HeroSection({ currentLang }) {
   }, [startSlideshow, stopSlideshow])
 
   const handleIndicatorClick = (index) => {
-    setCurrentSlide(index)
-    stopSlideshow()
-    setTimeout(startSlideshow, 2000) // Brief pause after manual interaction
+    if (index !== currentSlide) {
+      setCurrentSlide(index)
+      isUserInteracting.current = true
+      stopSlideshow()
+      
+      setTimeout(() => {
+        isUserInteracting.current = false
+        startSlideshow()
+      }, 3000)
+    }
   }
 
   const handleMouseEnter = () => {
+    isUserInteracting.current = true
     stopSlideshow()
   }
 
   const handleMouseLeave = () => {
+    isUserInteracting.current = false
     startSlideshow()
   }
 
   const handleTouchStart = (e) => {
     startX.current = e.touches[0].clientX
+    isUserInteracting.current = true
     stopSlideshow()
   }
 
@@ -66,15 +83,19 @@ function HeroSection({ currentLang }) {
 
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
-        // Swipe left - next slide
         nextSlide()
       } else {
-        // Swipe right - previous slide
         setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
       }
+      
+      setTimeout(() => {
+        isUserInteracting.current = false
+        startSlideshow()
+      }, 3000)
+    } else {
+      isUserInteracting.current = false
+      setTimeout(startSlideshow, 1000)
     }
-
-    setTimeout(startSlideshow, 2000) // Brief pause after manual interaction
   }
 
   return (
@@ -132,8 +153,8 @@ function HeroSection({ currentLang }) {
           <p>
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
               緑豊かで先進的なマレー半島の雰囲気を<br/>
-              洗練されたモダン料理を通じてどなたにも共有できる空間<br/>
-              の創出を目指して。
+              洗練されたモダン料理を通じて誰でも気軽に足を運んで<br/>
+              共有できるような空間を提供します。
             </span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
               Enriching the communities<br/>

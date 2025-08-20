@@ -1052,7 +1052,7 @@ body {
     height: 100%;
     opacity: 0;
     transform: scale(1.05);
-    transition: all 0.8s ease-in-out;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1061,6 +1061,7 @@ body {
     justify-content: center;
     text-align: center;
     line-height: 1.6;
+    will-change: opacity, transform;
 }
 
 .hero-slide.active {
@@ -1120,8 +1121,9 @@ body {
     border-radius: 0;
     background: rgba(255,255,255,0.4);
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
     border: 1px solid rgba(255,255,255,0.6);
+    user-select: none;
 }
 
 .hero-indicator.active {
