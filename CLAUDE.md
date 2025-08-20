@@ -28,17 +28,18 @@ npm install          # Install all dependencies
 ### Application Structure
 ```
 src/
-├── App.jsx              # Main application orchestrator
-├── App.css              # Global styles with forest theme system
+├── App.jsx              # Main application orchestrator with navigation and state
+├── App.css              # Global styles with forest theme and custom font system
 ├── index.css            # Base CSS reset and global styles
 ├── main.jsx             # React 19 application entry point
 ├── schedule.json        # Dynamic event data with bilingual support
 └── components/          # Modular section components
-    ├── News.jsx         # News announcements section
-    ├── Concept.jsx      # Business philosophy section
-    ├── Menu.jsx         # Food menu display
-    ├── Schedule.jsx     # Dynamic event schedule
-    └── Access.jsx       # Location and contact information
+    ├── HeroSection.jsx  # Main hero with image slideshow (currently active)
+    ├── Schedule.jsx     # Calendar with dynamic event scheduling
+    ├── Access.jsx       # Location and contact information
+    ├── News.jsx         # News announcements (commented out in App.jsx)
+    ├── Concept.jsx      # Business philosophy (commented out in App.jsx)
+    └── Menu.jsx         # Food menu display (commented out in App.jsx)
 ```
 
 ### Component Architecture Patterns
@@ -46,8 +47,9 @@ src/
 **1. Centralized State Management (App.jsx)**
 - `currentLang` state controls language switching ('ja' | 'en')
 - `scheduleData` state holds JSON-loaded event information
+- `isMobileMenuOpen` state controls mobile hamburger menu visibility
 - Props drilling pattern: language and data passed to child components
-- Global effects managed at App level (scroll handlers, animation observers)
+- Global effects managed at App level (scroll handlers, animation observers, smooth scrolling)
 
 **2. Functional Component Pattern**
 All components are functional components using modern React patterns:
@@ -67,6 +69,14 @@ export default ComponentName
 - Each main navigation item corresponds to a separate component
 - Components are self-contained with their own styling concerns
 - All sections follow consistent structure: id attribute for navigation, bilingual content
+- **Currently Active**: HeroSection, Schedule, Access (News, Concept, Menu commented out in App.jsx)
+
+**4. HeroSection Component Features**
+- Image slideshow with 4 slides, auto-advancing every 6 seconds
+- Touch/swipe support for mobile interaction
+- Click indicators for manual navigation
+- Pause on hover/touch interaction
+- Bilingual slide content with smooth transitions
 
 ## Key Patterns & Conventions
 
@@ -155,6 +165,14 @@ useEffect(() => {
 }, [])
 ```
 
+### Schedule Component Architecture
+**Dynamic Calendar Generation**: Builds monthly calendar views programmatically
+- Automatically detects available months from schedule data
+- Month navigation with previous/next controls
+- Event overlay system with color theming (green/pink)
+- Flyer generation using html2canvas for printable schedules
+- Responsive calendar that adapts to mobile screen sizes
+
 ## Styling & Theming Approach
 
 ### CSS Custom Properties System
@@ -177,12 +195,20 @@ useEffect(() => {
 - Utility classes for layout (Tailwind-inspired but custom)
 - CSS Grid and Flex-box for responsive layouts
 
+### Typography & Font System
+**Custom Font Stack**: Mimics elegant restaurant/brand styling
+- **Headers/Titles**: `Oswald` - Bold condensed sans-serif for brand names, section titles, navigation
+- **Body Text**: `Playfair Display` - Elegant serif for readability and sophistication
+- **Fallbacks**: System fonts (Arial Black, Times New Roman) for reliability
+- **Font Features**: Uppercase transforms, letter-spacing, proper weights for hierarchy
+
 ### Responsive Design Strategy
 **Mobile-First Approach**:
 - Base styles target mobile
 - `@media (min-width: 768px)` for desktop enhancements
 - Grid layouts collapse to single column on mobile
 - Schedule components stack vertically on small screens
+- Hamburger menu system for mobile navigation
 
 ### Animation Performance
 **Hardware Acceleration**: Uses transform and opacity for smooth animations
@@ -219,6 +245,7 @@ export default defineConfig({
 - **Core**: React 19.1.1, React DOM 19.1.1
 - **Build**: Vite 7.1.2, @vitejs/plugin-react 5.0.0
 - **Quality**: ESLint 9.33.0 with React-specific plugins
+- **Utilities**: html2canvas 1.4.1 (for flyer generation in Schedule component)
 - **No external libraries** for: routing, state management, UI components, animations
 
 ## Development Notes & Best Practices
