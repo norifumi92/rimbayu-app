@@ -14,7 +14,7 @@
 }
 
 body {
-    font-family: 'Noto Sans JP', 'Inter', sans-serif;
+    font-family: 'Playfair Display', 'Lora', 'Times New Roman', serif;
     line-height: 1.6;
     color: #333;
     background-color: var(--warm-white);
@@ -42,19 +42,22 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(45, 80, 22, 0.95);
+    background: transparent;
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
 }
 
 .section-title {
+    font-family: 'Oswald', 'Arial Black', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--forest-primary);
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .section-title::after {
@@ -136,7 +139,9 @@ body {
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
+    font-family: 'Oswald', sans-serif;
     font-weight: 500;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
 
@@ -163,11 +168,6 @@ body {
 }
 
 /* Calendar Styles */
-
-.schedule-section {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-}
-
 .calendar-container {
     background: white;
     border-radius: 20px;
@@ -187,9 +187,12 @@ body {
 }
 
 .calendar-month {
+    font-family: 'Oswald', sans-serif;
     margin: 0;
     font-size: 2rem;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     flex: 1;
     text-align: center;
@@ -306,7 +309,7 @@ body {
 }
 
 .event-info .location {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     font-weight: 600;
     color: var(--forest-primary);
     margin-bottom: 0.25rem;
@@ -354,11 +357,14 @@ body {
 }
 
 .info-card h3 {
+    font-family: 'Oswald', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--forest-primary);
     margin-bottom: 1.5rem;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .location-details {
@@ -375,8 +381,10 @@ body {
 .location-badge {
     padding: 0.5rem 1rem;
     border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
     color: white;
     white-space: nowrap;
     min-width: 120px;
@@ -539,7 +547,9 @@ body {
 }
 
 .font-bold {
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .hidden {
@@ -557,13 +567,16 @@ body {
 }
 
 .nav-bar a {
-    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-bar a:hover {
-    color: #88c070;
+    color: var(--forest-primary);
 }
 
 .text-center {
@@ -716,9 +729,12 @@ body {
 }
 
 .flyer-title {
+    font-family: 'Oswald', 'Arial Black', sans-serif;
     font-size: 2.5rem;
     color: var(--forest-primary);
-    font-weight: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     text-align: center;
     margin: 0;
     flex: 1;
@@ -730,8 +746,10 @@ body {
     border: none;
     padding: 0.75rem 1.5rem;
     cursor: pointer;
+    font-family: 'Oswald', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
 }
@@ -917,7 +935,7 @@ body {
 .hamburger span {
     display: block;
     height: 2px;
-    background-color: white;
+    background-color: #333;
     border-radius: 1px;
     transition: all 0.3s ease;
     transform-origin: center;
@@ -963,7 +981,9 @@ body {
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    font-family: 'Oswald', sans-serif;
     font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .mobile-nav-link:hover {
@@ -979,5 +999,259 @@ body {
 @media (min-width: 768px) {
     .md\:hidden {
         display: none;
+    }
+}
+
+/* New Hero Section Styles */
+.hero-section-new {
+    padding: 120px 0 60px;
+    background-color: var(--warm-white);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-image-area {
+    flex: 1;
+    position: relative;
+    max-width: 600px;
+    margin-right: 60px;
+}
+
+.hero-slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    animation: fadeInScale 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-slide.slide-1 {
+    background: linear-gradient(135deg, #f4e4c1 0%, #e8d5b7 100%);
+    color: #8b7355;
+}
+
+.hero-slide.slide-2 {
+    background: linear-gradient(135deg, #e8f4f8 0%, #d1e7dd 100%);
+    color: #5a6c57;
+}
+
+.hero-slide.slide-3 {
+    background: linear-gradient(135deg, #f8f6f0 0%, #ede8d3 100%);
+    color: #7d6c47;
+}
+
+.hero-slide.slide-4 {
+    background: linear-gradient(135deg, #fff8e7 0%, #f4e6d7 100%);
+    color: #a0845c;
+}
+
+.slide-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.slide-desc {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+}
+
+.hero-slide-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.hero-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+.hero-indicator.active {
+    background: rgba(255,255,255,0.9);
+    transform: scale(1.3);
+}
+
+.hero-text-area {
+    flex: 1;
+    max-width: 500px;
+    animation: slideInRight 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-text-area h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0;
+    line-height: 1.3;
+    color: #333;
+}
+
+.hero-brand-name {
+    display: block;
+    font-family: 'Oswald', 'Arial Black', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--forest-primary) 0%, var(--forest-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.hero-text-area p {
+    margin-top: 25px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 400;
+}
+
+/* Floating elements for ambiance */
+.hero-floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(45, 80, 22, 0.1);
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero-float-1 {
+    top: 15%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+.hero-float-2 {
+    top: 70%;
+    right: 15%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 2s;
+}
+
+.hero-float-3 {
+    bottom: 20%;
+    left: 5%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .hero-image-area {
+        margin-right: 0;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+
+    .hero-slideshow-container {
+        height: 350px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .hero-floating-element {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-container {
+        padding: 30px 4%;
+    }
+
+    .hero-slideshow-container {
+        height: 280px;
+    }
+    
+    .hero-text-area h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-brand-name {
+        font-size: 2.5rem;
     }
 }

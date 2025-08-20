@@ -3,7 +3,7 @@ function Access({ currentLang }) {
     <section id="access" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="section-title animate-on-scroll animate-slide-up">
-          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
+          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ACCESS</span>
           <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
@@ -74,10 +74,6 @@ function Access({ currentLang }) {
             <p className="text-lg">
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Semenanjung & Co.</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Semenanjung & Co.</span>
-            </p>
-            <p className="text-gray-600">
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>マレー半島をみんなで一緒に体験しよう</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Experience the Malay Peninsula Together</span>
             </p>
           </div>
         </div>

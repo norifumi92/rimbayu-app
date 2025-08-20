@@ -6,6 +6,7 @@ import './App.css'
 // import Menu from './components/Menu'
 import Schedule from './components/Schedule'
 import Access from './components/Access'
+import HeroSection from './components/HeroSection'
 
 function App() {
   const [currentLang, setCurrentLang] = useState('ja')
@@ -46,11 +47,8 @@ function App() {
     const handleScroll = () => {
       const navbar = document.querySelector('.nav-bar')
       if (navbar) {
-        if (window.scrollY > 100) {
-          navbar.style.background = 'rgba(45, 80, 22, 0.98)'
-        } else {
-          navbar.style.background = 'rgba(45, 80, 22, 0.95)'
-        }
+        // Keep navbar transparent regardless of scroll
+        navbar.style.background = 'transparent'
       }
     }
 
@@ -93,7 +91,7 @@ function App() {
       <nav className="nav-bar">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <div className="text-white text-2xl font-bold">
+            <div className="text-2xl font-bold" style={{color: '#333'}}>
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Rimbayu</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Rimbayu</span>
             </div>
@@ -111,11 +109,11 @@ function App() {
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>メニュー</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>MENU</span>
               </a> */}
-              <a href="#schedule" className="text-white hover:text-green-300 transition-colors">
+              <a href="#schedule" className="transition-colors">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
               </a>
-              <a href="#access" className="text-white hover:text-green-300 transition-colors">
+              <a href="#access" className="transition-colors">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
               </a>
@@ -123,9 +121,10 @@ function App() {
 
             {/* Mobile Hamburger Menu */}
             <button 
-              className="md:hidden text-white focus:outline-none"
+              className="md:hidden focus:outline-none"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
+              style={{color: '#333'}}
             >
               <div className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
                 <span></span>
@@ -151,29 +150,18 @@ function App() {
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>MENU</span>
           </a> */}
           <a href="#schedule" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>SCHEDULE</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
           </a>
           <a href="#access" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ACCESS</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
           </a>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="text-center">
-          <h1 className="text-6xl font-bold mb-6">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Rimbayu</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Rimbayu</span>
-          </h1>
-          <p className="text-2xl mb-8">
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>by Semenanjung & Co.</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>by Semenanjung & Co.</span>
-          </p>
-        </div>
-      </section>
+      <HeroSection currentLang={currentLang} />
 
       {/* <News currentLang={currentLang} />
 

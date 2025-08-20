@@ -142,7 +142,7 @@ function Schedule({ currentLang, scheduleData }) {
     <section id="schedule" className="py-20 schedule-section">
       <div className="container mx-auto px-4">
         <h2 className="section-title animate-on-scroll animate-slide-up">
-          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>スケジュール</span>
+          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>SCHEDULE</span>
           <span className={currentLang === 'en' ? '' : 'hidden-lang'}>SCHEDULE</span>
         </h2>
         
