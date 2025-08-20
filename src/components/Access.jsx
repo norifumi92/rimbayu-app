@@ -15,21 +15,30 @@ function Access({ currentLang }) {
             </h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <i className="fas fa-calendar-alt text-green-600 mr-3"></i>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-map-marker-alt text-green-600 mr-3"></i>
+                <a 
+                  href="https://maps.app.goo.gl/4pCy85f2XzxdNHQd9" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>地図で確認</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>View on Map</span>
+                </a>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-car text-green-600 mr-3"></i>
                 <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>毎週木曜日</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Every Thursday</span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>駐車場あり</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Car Parking Available</span>
                 </span>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-clock text-green-600 mr-3"></i>
-                <span>11:00-15:00</span>
-              </div>
-              <div className="flex items-center">
-                <i className="fas fa-utensils text-green-600 mr-3"></i>
                 <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>テイクアウト中心</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Takeout Focused</span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>駐車場を利用する際は駐車サービス券を発行しますのでお会計時に駐車券を提示してください。</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>If you come by car, please present your parking ticket at the cashier to receive the parking discount.</span>
                 </span>
               </div>
             </div>
