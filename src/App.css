@@ -325,6 +325,20 @@ body {
     text-shadow: none;
     box-shadow: none;
     border: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.event-info .time .time-start,
+.event-info .time .time-end {
+    white-space: nowrap;
+}
+
+.event-info .time .time-separator {
+    margin: 0 0.2rem;
 }
 
 /* Calendar Legend Styles */
@@ -1043,8 +1057,15 @@ body {
     }
     
     .event-info .time {
-        font-size: 0.6rem;
-        padding: 0.2rem 0.4rem;
+        font-size: 0.55rem;
+        padding: 0.2rem 0.3rem;
+        flex-direction: column;
+        line-height: 1.1;
+        gap: 0.1rem;
+    }
+    
+    .event-info .time .time-separator {
+        display: none;
     }
     
     .event-info .location-symbol {
@@ -1068,16 +1089,16 @@ body {
     }
     
     .legend-items {
-        gap: 1rem;
-        flex-direction: column;
+        gap: 0.5rem;
+        flex-wrap: nowrap;
         align-items: center;
     }
     
     .legend-item {
-        gap: 0.5rem;
-        padding: 0.5rem 0.75rem;
-        width: 100%;
-        max-width: 200px;
+        gap: 0.25rem;
+        padding: 0.4rem 0.6rem;
+        flex-shrink: 1;
+        min-width: 0;
         justify-content: center;
     }
     
