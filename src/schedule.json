@@ -7,9 +7,7 @@
     "location_ja": "山崎団地 ぐりーんハウス",
     "location_en": "Green House Yamazaki Danchi",
     "time_start": "11:00",
-    "time_end": "14:00",
-    "color_theme": "gold",
-    "symbol": "🏡"
+    "time_end": "14:00"
   },
   {
     "date": "2025-08-23",
@@ -19,9 +17,7 @@
     "location_ja": "淵野辺 フチノベース",
     "location_en": "Fuchinobase",
     "time_start": "11:00",
-    "time_end": "16:00",
-    "color_theme": "gold",
-    "symbol": "🏢"
+    "time_end": "16:00"
   },
   {
     "date": "2025-08-30",
@@ -31,8 +27,16 @@
     "location_ja": "山崎団地 ぐりーんハウス",
     "location_en": "Green House Yamazaki Danchi",
     "time_start": "11:00",
-    "time_end": "15:00",
-    "color_theme": "gold",
-    "symbol": "🏡"
+    "time_end": "15:00"
+  },
+  {
+    "date": "2025-09-27",
+    "day_ja": "土",
+    "day_en": "Sat",
+    "day_num": "27",
+    "location_ja": "淵野辺 フチノベース",
+    "location_en": "Fuchinobase",
+    "time_start": "11:00",
+    "time_end": "16:00"
   }
 ]

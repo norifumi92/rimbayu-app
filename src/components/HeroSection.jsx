@@ -152,7 +152,7 @@ function HeroSection({ currentLang }) {
           </h1>
           <p>
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
-              マレー半島の風を感じられる食空間を提供します。
+              マレー半島の風を感じられる食空間
             </span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
               Bringing the Breeze of Malaysia to Your Table.
