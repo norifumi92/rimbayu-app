@@ -6,6 +6,7 @@ import './App.css'
 // import Menu from './components/Menu'
 import Schedule from './components/Schedule'
 import Access from './components/Access'
+import Contact from './components/Contact'
 import HeroSection from './components/HeroSection'
 
 function App() {
@@ -92,8 +93,6 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold" style={{color: '#333'}}>
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Rimbayu</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Rimbayu</span>
             </div>
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
@@ -116,6 +115,10 @@ function App() {
               <a href="#access" className="transition-colors">
                 <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>アクセス</span>
                 <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
+              </a>
+              <a href="#contact" className="transition-colors">
+                <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>お問い合わせ</span>
+                <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONTACT</span>
               </a>
             </div>
 
@@ -157,6 +160,10 @@ function App() {
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ACCESS</span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
           </a>
+          <a href="#contact" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
+            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>お問い合わせ</span>
+            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONTACT</span>
+          </a>
         </div>
       </nav>
 
@@ -172,6 +179,8 @@ function App() {
       <Schedule currentLang={currentLang} scheduleData={scheduleData} />
 
       <Access currentLang={currentLang} />
+
+      <Contact currentLang={currentLang} />
 
       {/* Footer */}
       <footer className="forest-gradient text-white py-8">

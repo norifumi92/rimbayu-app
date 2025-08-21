@@ -73,19 +73,6 @@ function Access({ currentLang }) {
           </div>
         </div>
 
-        {/* Contact Info */}
-        <div className="text-center mt-12 animate-on-scroll animate-slide-up">
-          <h3 className="text-2xl font-semibold mb-6" style={{color: 'var(--forest-primary)'}}>
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>お問い合わせ</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>CONTACT</span>
-          </h3>
-          <div className="space-y-4">
-            <p className="text-lg">
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>Semenanjung & Co.</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Semenanjung & Co.</span>
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   )

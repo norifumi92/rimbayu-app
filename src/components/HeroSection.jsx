@@ -152,14 +152,10 @@ function HeroSection({ currentLang }) {
           </h1>
           <p>
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
-              緑豊かで先進的なマレー半島の雰囲気を<br/>
-              洗練されたモダン料理を通じて誰でも気軽に足を運んで<br/>
-              共有できるような空間を提供します。
+              マレー半島の風を感じられる食空間を提供します。
             </span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
-              Enriching the communities<br/>
-              through the experience we offer with refined dishes <br/>
-              from Malay Peninsula. 
+              Bringing the Breeze of Malaysia to Your Table.
             </span>
           </p>
         </div>

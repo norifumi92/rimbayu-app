@@ -115,14 +115,6 @@ body {
     transform: scale(1.05);
 }
 
-.location-card {
-    background: white;
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    border: 3px solid var(--forest-light);
-    margin-bottom: 2rem;
-}
 
 .lang-toggle {
     position: fixed;
