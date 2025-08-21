@@ -184,14 +184,19 @@ body {
     box-shadow: 0 20px 40px rgba(45, 80, 22, 0.15);
 }
 
-.schedule-item.green {
-    border-color: var(--forest-light);
-    background: linear-gradient(135deg, #f0f8f0 0%, #ffffff 100%);
+.schedule-item.red {
+    border-color: #a41e22;
+    background: linear-gradient(135deg, #f8f2f2 0%, #ffffff 100%);
 }
 
-.schedule-item.pink {
-    border-color: #f8d7da;
-    background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+.schedule-item.gold {
+    border-color: #c5b358;
+    background: linear-gradient(135deg, #faf8f0 0%, #ffffff 100%);
+}
+
+.schedule-item.teal {
+    border-color: #2c3e50;
+    background: linear-gradient(135deg, #f2f4f6 0%, #ffffff 100%);
 }
 
 .date-circle {
@@ -207,12 +212,19 @@ body {
     position: relative;
 }
 
-.date-circle.green {
-    background: linear-gradient(135deg, var(--forest-secondary) 0%, var(--forest-primary) 100%);
+.date-circle.red {
+    background: #a41e22;
+    color: white;
 }
 
-.date-circle.pink {
-    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+.date-circle.gold {
+    background: #c5b358;
+    color: #2c3e50;
+}
+
+.date-circle.teal {
+    background: #2c3e50;
+    color: #c5b358;
 }
 
 .day-text {
@@ -286,12 +298,19 @@ body {
     text-align: center;
 }
 
-.location-badge.green {
-    background: linear-gradient(135deg, var(--forest-secondary) 0%, var(--forest-primary) 100%);
+.location-badge.red {
+    background: #a41e22;
+    color: white;
 }
 
-.location-badge.pink {
-    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+.location-badge.gold {
+    background: #c5b358;
+    color: #2c3e50;
+}
+
+.location-badge.teal {
+    background: #2c3e50;
+    color: #c5b358;
 }
 
 .location-item p {

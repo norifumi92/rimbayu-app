@@ -10,8 +10,8 @@ function Access({ currentLang }) {
           {/* Yamazaki Danchi */}
           <div className="location-card animate-on-scroll animate-slide-left">
             <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>山崎団地 ぐりーんハウス</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Yamazaki Danchi Green House</span>
+              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>町田山崎団地 ぐりーんハウス</span>
+              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Machida Yamazaki Danchi Green House</span>
             </h3>
             <div className="space-y-3">
               <div className="flex items-center">
@@ -32,13 +32,20 @@ function Access({ currentLang }) {
                 <i className="fas fa-car text-green-600 mr-3"></i>
                 <span>
                   <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>駐車場あり</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Car Parking Available</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Parking Available</span>
                 </span>
               </div>
               <div className="flex items-center">
                 <span>
                   <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>駐車場を利用する際は駐車サービス券を発行しますのでお会計時に駐車券を提示してください。</span>
                   <span className={currentLang === 'en' ? '' : 'hidden-lang'}>If you come by car, please present your parking ticket at the cashier to receive the parking discount.</span>
+                </span>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-chair text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店前２テーブルあり</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>2 Dine-in Tables Available</span>
                 </span>
               </div>
             </div>
@@ -52,20 +59,28 @@ function Access({ currentLang }) {
             </h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <i className="fas fa-calendar-alt text-green-600 mr-3"></i>
-                <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>月1回 第1土曜日</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Monthly, First Saturday</span>
-                </span>
+                <i className="fas fa-map-marker-alt text-green-600 mr-3"></i>
+                <a 
+                  href="https://maps.app.goo.gl/CD7TJymvkRDQC525A" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>地図で確認</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>View on Map</span>
+                </a>
               </div>
               <div className="flex items-center">
-                <i className="fas fa-clock text-green-600 mr-3"></i>
-                <span>11:00-17:00</span>
+                <i className="fas fa-train text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>淵野辺駅から徒歩4分</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>4 mins walk from Fuchinobe St.</span>
+                </span>
               </div>
               <div className="flex items-center">
                 <i className="fas fa-chair text-green-600 mr-3"></i>
                 <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内飲食中心</span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内８席あり</span>
                   <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Dine-in Focused</span>
                 </span>
               </div>

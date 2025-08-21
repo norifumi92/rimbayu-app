@@ -53,6 +53,20 @@ function Schedule({ currentLang, scheduleData }) {
     return { days, monthName: firstDay.toLocaleDateString(currentLang === 'ja' ? 'ja-JP' : 'en-US', { month: 'long', year: 'numeric' }) }
   }
 
+  const getLocationTimeClass = (event) => {
+    if (!event) return ''
+    const locationJa = event.location_ja.toLowerCase()
+    const locationEn = event.location_en.toLowerCase()
+    
+    if (locationJa.includes('フチノベース') || locationEn.includes('fuchinobase')) {
+      return 'time-fuchinobase'
+    }
+    if (locationJa.includes('山崎団地') || locationEn.includes('yamazaki')) {
+      return 'time-yamazaki'
+    }
+    return ''
+  }
+
   const renderCalendarCell = (dayData) => {
     if (!dayData) {
       return <td key="empty" className="calendar-empty"></td>
@@ -66,11 +80,11 @@ function Schedule({ currentLang, scheduleData }) {
         <div className="day-number">{day}</div>
         {hasEvent && (
           <div className="event-info">
-            <div className="location">
+            {/* <div className="location">
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>{event.location_ja}</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>{event.location_en}</span>
-            </div>
-            <div className="time">{event.time_start}-{event.time_end}</div>
+            </div> */}
+            <div className={`time ${getLocationTimeClass(event)}`}>{event.time_start}-{event.time_end}</div>
           </div>
         )}
       </td>
@@ -149,6 +163,25 @@ function Schedule({ currentLang, scheduleData }) {
         <div className="max-w-5xl mx-auto">
           <div className="animate-on-scroll animate-slide-up">
             {renderCalendar()}
+          </div>
+          
+          <div className="schedule-legend animate-on-scroll animate-slide-up">
+            <div className="legend-items">
+              <div className="legend-item">
+                <span className="legend-color time-fuchinobase"></span>
+                <span className="legend-text">
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>フチノベース</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Fuchinobase</span>
+                </span>
+              </div>
+              <div className="legend-item">
+                <span className="legend-color time-yamazaki"></span>
+                <span className="legend-text">
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>山崎団地ぐりーんハウス</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Yamazaki Danchi Green House</span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
