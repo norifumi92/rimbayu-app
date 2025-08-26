@@ -29,6 +29,13 @@ function Access({ currentLang }) {
                 </a>
               </div>
               <div className="flex items-center">
+                <i className="fas fa-train text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>町田駅からバス20分/古淵駅からバス10分</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>20 mins by bus from Machida St./10 mins by bus from Kobuchi St.</span>
+                </span>
+              </div>
+              <div className="flex items-center">
                 <i className="fas fa-car text-green-600 mr-3"></i>
                 <span>
                   <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>駐車場あり</span>
