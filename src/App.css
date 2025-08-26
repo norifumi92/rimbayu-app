@@ -1155,10 +1155,10 @@ body {
     top: 72px;
     left: 0;
     right: 0;
-    background: rgba(45, 80, 22, 0.98);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     transform: translateY(-10px);
-    opacity: 0;
+    opacity: 1;
     visibility: hidden;
     transition: all 0.3s ease;
     z-index: 999;
@@ -1175,7 +1175,7 @@ body {
 .mobile-nav-link {
     display: block;
     padding: 1rem 2rem;
-    color: white;
+    color: #333;
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
@@ -1186,7 +1186,7 @@ body {
 
 .mobile-nav-link:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: #88c070;
+    color: var(--forest-primary);
     padding-left: 2.5rem;
 }
 
