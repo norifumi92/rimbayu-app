@@ -9,7 +9,7 @@ function Schedule({ currentLang, scheduleData }) {
     const monthsSet = new Set()
     scheduleData.forEach(event => {
       const date = new Date(event.date)
-      const monthKey = `${date.getFullYear()}-${date.getMonth()}`
+      const monthKey = `${date.getFullYear()}-${String(date.getMonth()).padStart(2, '0')}`
       monthsSet.add(monthKey)
     })
     
@@ -64,19 +64,22 @@ function Schedule({ currentLang, scheduleData }) {
     if (locationJa.includes('山崎団地') || locationEn.includes('yamazaki')) {
       return 'time-yamazaki'
     }
+    if (locationJa.includes('ナワシロ') || locationEn.includes('nawashiro')) {
+      return 'time-nawashiro'
+    }
     return ''
   }
 
-  const renderCalendarCell = (dayData) => {
+  const renderCalendarCell = (dayData, uniqueKey) => {
     if (!dayData) {
-      return <td key="empty" className="calendar-empty"></td>
+      return <td key={uniqueKey} className="calendar-empty"></td>
     }
 
     const { day, event } = dayData
     const hasEvent = !!event
 
     return (
-      <td key={day} className={`calendar-day ${hasEvent ? 'has-event' : ''} ${event?.color_theme || ''}`}>
+      <td key={uniqueKey} className={`calendar-day ${hasEvent ? 'has-event' : ''} ${event?.color_theme || ''}`}>
         <div className="day-number">{day}</div>
         {hasEvent && (
           <div className="event-info">
@@ -147,7 +150,7 @@ function Schedule({ currentLang, scheduleData }) {
           <tbody>
             {weeks.map((week, weekIndex) => (
               <tr key={weekIndex}>
-                {week.map((dayData) => renderCalendarCell(dayData))}
+                {week.map((dayData, dayIndex) => renderCalendarCell(dayData, `${weekIndex}-${dayIndex}`))}
               </tr>
             ))}
           </tbody>
@@ -183,6 +186,13 @@ function Schedule({ currentLang, scheduleData }) {
                 <span className="legend-text">
                   <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>山崎団地ぐりーんハウス</span>
                   <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Yamazaki Danchi Green House</span>
+                </span>
+              </div>
+              <div className="legend-item">
+                <span className="legend-color time-nawashiro"></span>
+                <span className="legend-text">
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ナワシロスタンド</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Nawashiro Stand</span>
                 </span>
               </div>
             </div>

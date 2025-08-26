@@ -413,6 +413,11 @@ body {
     color: #ffffff !important;
 }
 
+.time-nawashiro {
+    background: #4a7c59 !important;
+    color: #ffffff !important;
+}
+
 /* Legend color indicators */
 .legend-color {
     display: inline-block;
@@ -1327,18 +1332,6 @@ body {
 .hero-text-area {
     flex: 1;
     max-width: 500px;
-    animation: slideInRight 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
-}
-
-@keyframes slideInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .hero-text-area h1 {
