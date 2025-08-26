@@ -64,8 +64,8 @@ function Schedule({ currentLang, scheduleData }) {
     if (locationJa.includes('山崎団地') || locationEn.includes('yamazaki')) {
       return 'time-yamazaki'
     }
-    if (locationJa.includes('ナワシロ') || locationEn.includes('nawashiro')) {
-      return 'time-nawashiro'
+    if (locationJa.includes('bonus') || locationEn.includes('bonus')) {
+      return 'time-bonus'
     }
     return ''
   }
@@ -189,10 +189,10 @@ function Schedule({ currentLang, scheduleData }) {
                 </span>
               </div>
               <div className="legend-item">
-                <span className="legend-color time-nawashiro"></span>
+                <span className="legend-color time-bonus"></span>
                 <span className="legend-text">
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ナワシロスタンド</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Nawashiro Stand</span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>BONUS TRACK</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Bonus Track</span>
                 </span>
               </div>
             </div>

@@ -6,7 +6,7 @@ function Access({ currentLang }) {
           <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ACCESS</span>
           <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Yamazaki Danchi */}
           <div className="location-card animate-on-scroll animate-slide-left">
             <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
@@ -51,8 +51,8 @@ function Access({ currentLang }) {
               <div className="flex items-center">
                 <i className="fas fa-chair text-green-600 mr-3"></i>
                 <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店前２テーブルあり</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>2 Dine-in Tables Available</span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店前２テーブル・アウトドアスペースあり</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>2 Dine-in Tables and Outdoor Space Available</span>
                 </span>
               </div>
             </div>
@@ -89,6 +89,42 @@ function Access({ currentLang }) {
                 <span>
                   <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内８テーブルあり</span>
                   <span className={currentLang === 'en' ? '' : 'hidden-lang'}>8 Dine-in Tables Available</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bonus Track */}
+          <div className="location-card animate-on-scroll animate-slide-right">
+            <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
+              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>BONUS TRACK</span>
+              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Bonus Track</span>
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <i className="fas fa-map-marker-alt text-green-600 mr-3"></i>
+                <a 
+                  href="https://maps.app.goo.gl/BKmg1nNJDxF1KNMz6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>地図で確認</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>View on Map</span>
+                </a>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-train text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>下北沢駅から徒歩5分</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>5 mins walk from Shimokitazawa St.</span>
+                </span>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-chair text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内８席・屋外スペースあり</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>8 Dine-in Seats and Outdoor Space Available</span>
                 </span>
               </div>
             </div>
