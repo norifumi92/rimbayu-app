@@ -1,7 +1,7 @@
 function Access({ currentLang }) {
   return (
-    <section id="access" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="access" className="section-standard section-background">
+      <div className="section-container">
         <h2 className="section-title animate-on-scroll animate-slide-up">
           <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ACCESS</span>
           <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>

@@ -87,10 +87,10 @@ function Schedule({ currentLang, scheduleData }) {
               <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>{event.location_ja}</span>
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>{event.location_en}</span>
             </div> */}
-            <div className={`time ${getLocationTimeClass(event)}`}>
-              <span className="time-start">{event.time_start}</span>
-              <span className="time-separator">-</span>
-              <span className="time-end">{event.time_end}</span>
+            <div className="time-display">
+              <span className={`location-circle ${getLocationTimeClass(event)}`}></span>
+              <span className="time-text">{event.time_start}</span>
+              <span className="time-text">~{event.time_end}</span>
             </div>
           </div>
         )}
