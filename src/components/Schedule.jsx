@@ -1,7 +1,8 @@
 import React from 'react'
 
 function Schedule({ currentLang, scheduleData }) {
-  const [currentMonthIndex, setCurrentMonthIndex] = React.useState(0)
+  const today = new Date()
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`
   
   const getAvailableMonths = () => {
     if (scheduleData.length === 0) return [new Date()]
@@ -9,7 +10,7 @@ function Schedule({ currentLang, scheduleData }) {
     const monthsSet = new Set()
     scheduleData.forEach(event => {
       const date = new Date(event.date)
-      const monthKey = `${date.getFullYear()}-${String(date.getMonth()).padStart(2, '0')}`
+      const monthKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`
       monthsSet.add(monthKey)
     })
     
@@ -17,9 +18,32 @@ function Schedule({ currentLang, scheduleData }) {
       .sort()
       .map(monthKey => {
         const [year, month] = monthKey.split('-')
-        return new Date(parseInt(year), parseInt(month), 1)
+        return new Date(parseInt(year), parseInt(month) - 1, 1)
       })
   }
+  
+  const getCurrentMonthIndex = () => {
+    const availableMonths = getAvailableMonths()
+    
+    // Find the current month (September 2025)
+    const currentMonthIndex = availableMonths.findIndex(month => 
+      month.getFullYear() === today.getFullYear() && month.getMonth() === today.getMonth()
+    )
+    
+    // If current month exists in schedule, use it
+    if (currentMonthIndex >= 0) {
+      return currentMonthIndex
+    }
+    
+    // Otherwise find the next available month
+    const nextMonthIndex = availableMonths.findIndex(month => {
+      return month.getFullYear() > today.getFullYear() || 
+             (month.getFullYear() === today.getFullYear() && month.getMonth() >= today.getMonth())
+    })
+    return nextMonthIndex >= 0 ? nextMonthIndex : 0
+  }
+  
+  const [currentMonthIndex, setCurrentMonthIndex] = React.useState(getCurrentMonthIndex)
   
   const availableMonths = getAvailableMonths()
   const currentMonth = availableMonths[currentMonthIndex] || new Date()
@@ -77,9 +101,12 @@ function Schedule({ currentLang, scheduleData }) {
 
     const { day, event } = dayData
     const hasEvent = !!event
+    const currentMonth = getCurrentMonth()
+    const cellDateStr = `${currentMonth.getFullYear()}-${String(currentMonth.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+    const isToday = cellDateStr === todayStr
 
     return (
-      <td key={uniqueKey} className={`calendar-day ${hasEvent ? 'has-event' : ''} ${event?.color_theme || ''}`}>
+      <td key={uniqueKey} className={`calendar-day ${hasEvent ? 'has-event' : ''} ${event?.color_theme || ''} ${isToday ? 'current-date' : ''}`}>
         <div className="day-number">{day}</div>
         {hasEvent && (
           <div className="event-info">

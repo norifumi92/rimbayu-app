@@ -503,6 +503,27 @@ body {
     color: #c5b358;
 }
 
+.calendar-day.current-date {
+    background: rgba(45, 80, 22, 0.1);
+    border: 2px solid var(--forest-primary);
+    box-shadow: 0 0 0 2px rgba(45, 80, 22, 0.3);
+}
+
+.calendar-day.current-date .day-number {
+    color: var(--forest-primary);
+    font-weight: 600;
+    background: var(--forest-primary);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 6px;
+    right: 10px;
+}
+
 .event-info {
     position: absolute;
     bottom: 8px;
