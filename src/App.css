@@ -389,11 +389,10 @@ body {
    ======================================== */
 
 .calendar-container {
-    background: #fefefe;
     border-radius: 0;
     overflow: hidden;
     border: none;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
 .calendar-header-section {
@@ -459,6 +458,7 @@ body {
     text-align: center;
     border: 1px solid #fefefe;
     letter-spacing: 0.5px;
+    width: 14.28%;
 }
 
 .calendar-day {
@@ -499,7 +499,7 @@ body {
 
 .calendar-day.has-event.teal {
     background: #fefefe;
-    border: 2px solid #fefefe;
+    border: 2px solid #c5b358;
     color: #c5b358;
 }
 
@@ -647,6 +647,10 @@ body {
 
 .legend-color.time-yamazaki {
     background-color: #b8860b;
+}
+
+.legend-color.time-bonus {
+    background-color: #4a7c59;
 }
 
 /* Special event styling */
