@@ -106,7 +106,7 @@ function Schedule({ currentLang, scheduleData }) {
     const isToday = cellDateStr === todayStr
 
     return (
-      <td key={uniqueKey} className={`calendar-day ${hasEvent ? 'has-event' : ''} ${event?.color_theme || ''} ${isToday ? 'current-date' : ''}`}>
+      <td key={uniqueKey} className={`calendar-day ${hasEvent ? 'has-event' : ''} ${event?.color_theme || ''} ${isToday ? 'current-date' : ''} ${event?.cancelled ? 'cancelled-event' : ''}`}>
         <div className="day-number">{day}</div>
         {hasEvent && (
           <div className="event-info">

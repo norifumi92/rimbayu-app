@@ -472,7 +472,7 @@ body {
 }
 
 .calendar-day:hover {
-    background: #34495e;
+    background: #4a7c59;
     transform: none;
     z-index: 10;
 }
@@ -524,6 +524,34 @@ body {
     right: 10px;
 }
 
+.calendar-day.cancelled-event {
+    opacity: 0.6;
+    position: relative;
+}
+
+.calendar-day.cancelled-event::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(255, 0, 0, 0.3) 8px,
+        rgba(255, 0, 0, 0.3) 10px
+    );
+    pointer-events: none;
+    z-index: 3;
+}
+
+.calendar-day.cancelled-event .event-info {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
 .event-info {
     position: absolute;
     bottom: 8px;
@@ -572,11 +600,12 @@ body {
 }
 
 .time-text {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     color: #2d5016;
     font-weight: 600;
+    font-feature-settings: "kern" 1;
+    line-height: 1;
     white-space: nowrap;
-    line-height: 1.2;
 }
 
 /* Calendar Legend Styles */
@@ -1429,8 +1458,9 @@ body {
     }
     
     .time-text {
-        font-size: 0.55rem;
-        line-height: 1.1;
+        font-size: 0.7rem;
+        line-height: 1;
+        font-feature-settings: "kern" 1;
     }
     
     .event-info .location-symbol {
