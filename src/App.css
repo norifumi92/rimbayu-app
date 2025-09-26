@@ -608,6 +608,11 @@ body {
     white-space: nowrap;
 }
 
+/* Make English time text bigger */
+[lang="en"] .time-text {
+    font-size: 1.0rem;
+}
+
 /* Calendar Legend Styles */
 .schedule-legend {
     margin-top: 1rem;

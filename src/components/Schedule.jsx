@@ -117,7 +117,7 @@ function Schedule({ currentLang, scheduleData }) {
             <div className="time-display">
               <span className={`location-circle ${getLocationTimeClass(event)}`}></span>
               <span className="time-text">{event.time_start}</span>
-              <span className="time-text">~{event.time_end}</span>
+              <span className="time-text">-{event.time_end}</span>
             </div>
           </div>
         )}
