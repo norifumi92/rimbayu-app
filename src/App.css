@@ -503,6 +503,7 @@ body {
     color: #c5b358;
 }
 
+/* Disabled current date styling
 .calendar-day.current-date {
     background: rgba(45, 80, 22, 0.1);
     border: 2px solid var(--forest-primary);
@@ -523,6 +524,7 @@ body {
     top: 6px;
     right: 10px;
 }
+*/
 
 .calendar-day.cancelled-event {
     opacity: 0.6;
