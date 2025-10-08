@@ -21,10 +21,10 @@ function Contact({ currentLang }) {
           
           <p className="contact-description">
           <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
-            ご予約やご要望につきましては、Instagramにて承っております。<br/> お気軽にお問い合わせください。
+            ご予約やご要望につきましては、Line/Instagramにて承っております。<br/> お気軽にお問い合わせください。
           </span>
           <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
-            For reservations or special requests, we kindly accept inquiries through Instagram. <br/> Please feel free to contact us.
+            For reservations or special requests, we kindly accept inquiries through Line/Instagram. <br/> Please feel free to contact us.
           </span>
           </p>
         </div>

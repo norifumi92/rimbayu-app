@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import scheduleJson from './schedule.json'
 import './App.css'
-// import News from './components/News'
+import News from './components/News'
 // import Concept from './components/Concept'
 // import Menu from './components/Menu'
 import Schedule from './components/Schedule'
@@ -170,15 +170,16 @@ function App() {
       {/* Hero Section */}
       <HeroSection currentLang={currentLang} />
 
-      {/* <News currentLang={currentLang} />
-
-      <Concept currentLang={currentLang} />
+      {/* <Concept currentLang={currentLang} />
 
       <Menu currentLang={currentLang} /> */}
 
       <Schedule currentLang={currentLang} scheduleData={scheduleData} />
 
       <Access currentLang={currentLang} />
+
+      {/* News Section */}
+      <News currentLang={currentLang} />
 
       <Contact currentLang={currentLang} />
 

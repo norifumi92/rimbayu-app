@@ -3,10 +3,47 @@ function Access({ currentLang }) {
     <section id="access" className="section-standard section-background">
       <div className="section-container">
         <h2 className="section-title animate-on-scroll animate-slide-up">
-          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>ACCESS</span>
-          <span className={currentLang === 'en' ? '' : 'hidden-lang'}>ACCESS</span>
+          <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>FIND US</span>
+          <span className={currentLang === 'en' ? '' : 'hidden-lang'}>FIND US</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
+
+          {/* Fuchinobase */}
+          <div className="location-card animate-on-scroll animate-slide-right">
+            <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
+              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>フチノベース</span>
+              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Fuchinobase</span>
+            </h3>
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <i className="fas fa-map-marker-alt text-green-600 mr-3"></i>
+                <a 
+                  href="https://maps.app.goo.gl/CD7TJymvkRDQC525A" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline"
+                >
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>地図で確認</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>View on Map</span>
+                </a>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-train text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>淵野辺駅から徒歩4分</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>4 mins walk from Fuchinobe St.</span>
+                </span>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-chair text-green-600 mr-3"></i>
+                <span>
+                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内８テーブルあり</span>
+                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>8 Dine-in Tables Available</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
           {/* Yamazaki Danchi */}
           <div className="location-card animate-on-scroll animate-slide-left">
             <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
@@ -14,8 +51,6 @@ function Access({ currentLang }) {
               <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Yamazaki Danchi Green House</span>
             </h3>
             <div className="space-y-3">
-              <div className="flex items-center">
-              </div>
               <div className="flex items-center">
                 <i className="fas fa-map-marker-alt text-green-600 mr-3"></i>
                 <a 
@@ -53,42 +88,6 @@ function Access({ currentLang }) {
                 <span>
                   <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店前２テーブル・アウトドアスペースあり</span>
                   <span className={currentLang === 'en' ? '' : 'hidden-lang'}>2 Dine-in Tables and Outdoor Space Available</span>
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Fuchinobase */}
-          <div className="location-card animate-on-scroll animate-slide-right">
-            <h3 className="text-2xl font-semibold mb-4" style={{color: 'var(--forest-primary)'}}>
-              <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>フチノベース</span>
-              <span className={currentLang === 'en' ? '' : 'hidden-lang'}>Fuchinobase</span>
-            </h3>
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <i className="fas fa-map-marker-alt text-green-600 mr-3"></i>
-                <a 
-                  href="https://maps.app.goo.gl/CD7TJymvkRDQC525A" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline"
-                >
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>地図で確認</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>View on Map</span>
-                </a>
-              </div>
-              <div className="flex items-center">
-                <i className="fas fa-train text-green-600 mr-3"></i>
-                <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>淵野辺駅から徒歩4分</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>4 mins walk from Fuchinobe St.</span>
-                </span>
-              </div>
-              <div className="flex items-center">
-                <i className="fas fa-chair text-green-600 mr-3"></i>
-                <span>
-                  <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>店内８テーブルあり</span>
-                  <span className={currentLang === 'en' ? '' : 'hidden-lang'}>8 Dine-in Tables Available</span>
                 </span>
               </div>
             </div>
