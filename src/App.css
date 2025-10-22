@@ -325,6 +325,11 @@ body {
     font-family: 'Playfair Display', 'Times New Roman', serif;
 }
 
+.news-card-vertical {
+    border: 2px solid #333;
+    width: 100%;
+}
+
 /* News section styling to match background_ref */
 #news {
     background-color: var(--reference-beige);
