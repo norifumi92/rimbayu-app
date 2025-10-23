@@ -1096,6 +1096,7 @@ body {
 .contact-social {
     display: flex;
     justify-content: center;
+    gap: 20px;
 }
 
 .instagram-link {
@@ -1118,6 +1119,28 @@ body {
 }
 
 .instagram-link i {
+    font-size: 2.5rem;
+}
+
+.line-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: #00B900;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.line-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 185, 0, 0.3);
+}
+
+.line-link i {
     font-size: 2.5rem;
 }
 
@@ -1596,6 +1619,15 @@ body {
     }
     
     .instagram-link i {
+        font-size: 2rem;
+    }
+    
+    .line-link {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .line-link i {
         font-size: 2rem;
     }
     

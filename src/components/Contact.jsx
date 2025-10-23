@@ -17,8 +17,15 @@ function Contact({ currentLang }) {
             >
               <i className="fab fa-instagram"></i>
             </a>
+            <a 
+              href="https://lin.ee/FxY832I" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="line-link"
+            >
+              <i className="fab fa-line"></i>
+            </a>
           </div>
-          
           <p className="contact-description">
           <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
             ご予約やご要望につきましては、Line/Instagramにて承っております。<br/> お気軽にお問い合わせください。
