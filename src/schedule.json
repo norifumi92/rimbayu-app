@@ -1,6 +1,6 @@
 [
   {
-    "date": "2025-11-08",
+    "date": "2025-12-06",
     "day_ja": "土",
     "day_en": "Sat",
     "location_ja": "山崎団地 ぐりーんハウス",
@@ -9,7 +9,7 @@
     "time_end": "14:30"
   },
   {
-    "date": "2025-11-11",
+    "date": "2025-12-08",
     "day_ja": "火",
     "day_en": "Tue",
     "location_ja": "BONUS TRACK",
@@ -18,25 +18,7 @@
     "time_end": "21:00"
   },
   {
-    "date": "2025-11-16",
-    "day_ja": "日",
-    "day_en": "Sun",
-    "location_ja": "フチノベース",
-    "location_en": "Fuchinobase",
-    "time_start": "11:00",
-    "time_end": "15:00"
-  },
-  {
-    "date": "2025-11-25",
-    "day_ja": "火",
-    "day_en": "Tue",
-    "location_ja": "BONUS TRACK",
-    "location_en": "Bonus Track",
-    "time_start": "18:00",
-    "time_end": "21:00"
-  },
-  {
-    "date": "2025-11-29",
+    "date": "2025-12-20",
     "day_ja": "土",
     "day_en": "Sat",
     "location_ja": "山崎団地 ぐりーんハウス",
