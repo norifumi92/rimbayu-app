@@ -312,7 +312,7 @@ body {
 }
 
 /* ========================================
-   COMPONENT SECTIONS
+   NEWS SECTIONS
    ======================================== */
 
 .news-card {
@@ -321,7 +321,7 @@ body {
     overflow: hidden;
     box-shadow: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     font-family: 'Playfair Display', 'Times New Roman', serif;
 }
 

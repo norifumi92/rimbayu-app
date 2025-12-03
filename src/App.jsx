@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import scheduleJson from './schedule.json'
+import newsJson from './news.json'
 import './App.css'
 import News from './components/News'
 // import Concept from './components/Concept'
@@ -12,6 +13,7 @@ import HeroSection from './components/HeroSection'
 function App() {
   const [currentLang, setCurrentLang] = useState('ja')
   const [scheduleData, setScheduleData] = useState([])
+  const [newsData, setNewsData] = useState([])
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const toggleLanguage = () => {
@@ -26,6 +28,7 @@ function App() {
   useEffect(() => {
     // Load from JSON
     setScheduleData(scheduleJson)
+    setNewsData(newsJson)
 
     // Smooth scrolling for navigation links
     const handleClick = (e) => {
@@ -179,7 +182,7 @@ function App() {
       <Access currentLang={currentLang} />
 
       {/* News Section */}
-      <News currentLang={currentLang} />
+      <News currentLang={currentLang} newsData={newsData} />
 
       <Contact currentLang={currentLang} />
 
