@@ -147,15 +147,13 @@ function HeroSection({ currentLang }) {
         <div className="hero-text-area">
           <h1>
             <span className="hero-brand-name">Rimbayu</span> 
-            <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>by Semenanjung & Co.</span>
-            <span className={currentLang === 'en' ? '' : 'hidden-lang'}>by Semenanjung & Co.</span>
           </h1>
           <p>
             <span className={currentLang === 'ja' ? '' : 'hidden-lang'}>
-              マレー半島の風を感じられる食空間
+              Modern Malaysian-style Kitchen
             </span>
             <span className={currentLang === 'en' ? '' : 'hidden-lang'}>
-              Bringing the Breeze of Malaysia to Your Table.
+              Modern Malaysian-style Kitchen
             </span>
           </p>
         </div>
